@@ -7,4 +7,5 @@ public class GamePiece {
     private String scissors;
     private String Xs;
     private String Os;
+
 }
