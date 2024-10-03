@@ -1,23 +1,50 @@
 package org.example.games;
-
-import org.example.pieces.GamePiece;
-
 import java.util.Arrays;
 
 public class TicTacToe {
 
     private String[] board;
-    private GamePiece turn;
 
-    //Step 1: Players choose X or O
-    //Step 2: Determine win conditions
-    public String winner() {
-        String line = "";
-        boolean xWins = false;
-        boolean oWins = false;
+    String turn;
 
-        for(int i = 0; i < 8; i++) {
-            switch(i) {
+    public TicTacToe() {
+    }
+
+    public TicTacToe(String[] board, String turn) {
+        this.board = board;
+        this.turn = turn;
+    }
+
+    public String[] getBoard() {
+        return board;
+    }
+
+    public void setBoard(String[] board) {
+        this.board = board;
+        clearBoard();
+
+
+    }
+
+    public void clearBoard() {
+        for(int i = 0; i < this.board.length - 1; i++) {
+            this.board[i] = String.valueOf(i + 1);
+        }
+    }
+
+    public String getTurn() {
+        return turn;
+    }
+    public void setTurn(String turn) {
+        this.turn = turn;
+    }
+
+    //Step 1: Determine win conditions
+    public String checkWinner() {
+
+        for (int i = 0; i < 8; i++) {
+            String line = null;
+            switch (i) {
                 case 0:
                     line = board[0] + board[1] + board[2];
                     break;
@@ -44,23 +71,37 @@ public class TicTacToe {
                     break;
             }
 
-            if(line.equals("XXX")) {
-                xWins = true;
+            if (line.equals("XXX")) {
                 return "X wins!";
             }
-            if(line.equals("OOO")) {
-                oWins = true;
-                return "O wins!";
+            if (line.equals("OOO")) {
+                return "O wins";
             }
         }
-        return "It's a draw!";
-    }
-    //Step 3: Players alternately place their pieces
-    //Step 4: Display board after each move
-    //Step 5: A player wins or draws
 
-    @Override
-    public String toString() {
-        return "TicTacToe! \n" + board;
+        for (int j = 0; j < 9; j++) {
+            if (Arrays.asList(board).contains(String.valueOf(j + 1))) {
+                break;
+            } else if (j == 9) {
+                return "Draw!";
+            }
+
+            System.out.println(turn + "'s turn. Choose a spot to place " + turn + ":");
+            return null;
+        }
+
+        System.out.println(
+                turn + "'s turn. Choose a spot to place "
+                        + turn + ":");
+        return null;
     }
-}
+
+        //Step 4: Print game board
+        public void printBoard () {
+            System.out.println(" " + board[0] + " || " + board[1] + " || " + board[2] + " \n" +
+                    "============= \n" +
+                    " " + board[3] + " || " + board[4] + " || " + board[5] + " \n"  +
+                    "============= \n" +
+                    " " + board[6] + " || " + board[7] + " || " + board[8] + " \n" );
+        }
+    }
