@@ -78,20 +78,15 @@ public class TicTacToe {
             }
         }
 
-        for (int j = 0; j < 9; j++) {
+        for(int j = 0; j <= 9; j++) {
             if (Arrays.asList(board).contains(String.valueOf(j + 1))) {
                 break;
             } else if (j == 9) {
                 return "Draw!";
             }
-
-            System.out.println(turn + "'s turn. Choose a spot to place " + turn + ":");
-            return null;
         }
 
-        System.out.println(
-                turn + "'s turn. Choose a spot to place "
-                        + turn + ":");
+        System.out.println(turn + "'s turn. Choose a spot to place " + turn + ":");
         return null;
     }
 

@@ -14,6 +14,7 @@ public class Main {
         System.out.println("Welcome to Simple Games! Choose a game to play:\n" +
                 "1. Tic Tac Toe\n" +
                 "2. Rock Paper Scissors");
+
         while (scan.hasNext()) {
             int game = scan.nextInt();
             switch (game) {
@@ -64,9 +65,11 @@ public class Main {
                     turn = "X";
                     ticTacToe.setTurn("X");
                 }
+
                 ticTacToe.printBoard();
                 winner = ticTacToe.checkWinner();
             }
+
             else {
                 System.out.println("Spot taken. Try again.");
             }
