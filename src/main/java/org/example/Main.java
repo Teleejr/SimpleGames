@@ -10,6 +10,22 @@ public class Main {
         System.out.println("Hello world!");
 
         Scanner scan = new Scanner(System.in);
+
+        System.out.println("Welcome to Simple Games! Choose a game to play:\n" +
+                "1. Tic Tac Toe\n" +
+                "2. Rock Paper Scissors");
+        while (scan.hasNext()) {
+            int game = scan.nextInt();
+            switch (game) {
+                case 1 -> ticTacToe();
+                //case 2 -> rockPaperScissors();
+                default -> scan.close();
+            }
+        }
+    }
+
+    public static void ticTacToe() {
+        Scanner scan = new Scanner(System.in);
         TicTacToe ticTacToe = new TicTacToe(new String[9]);
         String[] board = ticTacToe.getBoard();
         String turn = "X";
@@ -65,4 +81,8 @@ public class Main {
         }
         scan.close();
     }
+
+//    public static void rockPaperScissors() {
+//
+//    }
 }
