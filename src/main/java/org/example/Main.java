@@ -10,9 +10,9 @@ public class Main {
         System.out.println("Hello world!");
 
         Scanner scan = new Scanner(System.in);
-        TicTacToe ticTacToe = new TicTacToe(new String[9], "X");
-        String[] board = new String[ticTacToe.getBoard().length];
-        String turn = ticTacToe.getTurn();
+        TicTacToe ticTacToe = new TicTacToe(new String[9]);
+        String[] board = ticTacToe.getBoard();
+        String turn = "X";
         String winner = null;
 
         for(int i = 0; i < 9; i++) {
@@ -42,9 +42,11 @@ public class Main {
 
                 if(turn.equals("X")) {
                     turn = "O";
+                    ticTacToe.setTurn("O");
                 }
                 else {
                     turn = "X";
+                    ticTacToe.setTurn("X");
                 }
                 ticTacToe.printBoard();
                 winner = ticTacToe.checkWinner();

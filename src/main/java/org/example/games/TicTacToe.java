@@ -10,9 +10,8 @@ public class TicTacToe {
     public TicTacToe() {
     }
 
-    public TicTacToe(String[] board, String turn) {
+    public TicTacToe(String[] board) {
         this.board = board;
-        this.turn = turn;
     }
 
     public String[] getBoard() {
@@ -27,7 +26,7 @@ public class TicTacToe {
     }
 
     public void clearBoard() {
-        for(int i = 0; i < this.board.length - 1; i++) {
+        for(int i = 0; i < this.board.length; i++) {
             this.board[i] = String.valueOf(i + 1);
         }
     }
