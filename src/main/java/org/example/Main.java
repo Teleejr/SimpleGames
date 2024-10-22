@@ -1,5 +1,6 @@
 package org.example;
 
+import org.example.games.RockPaperScissors;
 import org.example.games.TicTacToe;
 
 import java.util.InputMismatchException;
@@ -8,6 +9,11 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         System.out.println("Hello world!");
+        menu();
+
+    }
+
+    public static void menu() {
 
         Scanner scan = new Scanner(System.in);
 
@@ -19,12 +25,12 @@ public class Main {
             int game = scan.nextInt();
             switch (game) {
                 case 1 -> ticTacToe();
-                //case 2 -> rockPaperScissors();
+                case 2 -> rockPaperScissors();
                 default -> scan.close();
             }
         }
     }
-
+    
     public static void ticTacToe() {
         Scanner scan = new Scanner(System.in);
         TicTacToe ticTacToe = new TicTacToe(new String[9]);
@@ -75,7 +81,6 @@ public class Main {
             }
         }
 
-
         if(winner.equalsIgnoreCase("Draw!")) {
             System.out.println(winner);
         }
@@ -85,7 +90,33 @@ public class Main {
         scan.close();
     }
 
-//    public static void rockPaperScissors() {
-//
-//    }
+    public static void rockPaperScissors() {
+
+        Scanner scan = new Scanner(System.in);
+        RockPaperScissors rps = new RockPaperScissors();
+        String winner = null;
+
+        System.out.println("Rock, Paper, Scissors!\n Choose between Rock(1), Paper(2), and Scissors(3)");
+
+        while(winner == null) {
+            int input = 0;
+
+            input = scan.nextInt();
+
+            if(!(input > 0 && input <= 3)) {
+                System.out.println("Invalid entry. Try again.");
+                continue;
+            }
+
+            winner = rps.checkWinner();
+            if(winner.contains("draw")) {
+                System.out.println(winner);
+            }
+            else {
+                System.out.println(winner);
+            }
+        }
+        scan.close();
+
+    }
 }
