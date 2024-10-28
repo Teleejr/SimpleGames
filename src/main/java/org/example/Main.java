@@ -19,14 +19,16 @@ public class Main {
 
         System.out.println("Welcome to Simple Games! Choose a game to play:\n" +
                 "1. Tic Tac Toe\n" +
-                "2. Rock Paper Scissors");
+                "2. Rock Paper Scissors\n" +
+                "3. Exit");
 
         while (scan.hasNext()) {
             int game = scan.nextInt();
             switch (game) {
                 case 1 -> ticTacToe();
                 case 2 -> rockPaperScissors();
-                default -> scan.close();
+                case 3 -> scan.close();
+                default -> menu();
             }
         }
     }
@@ -87,7 +89,7 @@ public class Main {
         else {
             System.out.println(winner + " wins! Good game!");
         }
-        scan.close();
+        menu();
     }
 
     public static void rockPaperScissors() {
