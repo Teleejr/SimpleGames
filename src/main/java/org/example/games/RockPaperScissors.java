@@ -10,7 +10,7 @@ public class RockPaperScissors {
     private int[] play = new int[2];
 
     //Holds winner for best out of three
-    private int[] response = new int[4];
+    private String[] response = new String[4];
 
     public RockPaperScissors(){}
 
@@ -22,17 +22,18 @@ public class RockPaperScissors {
         this.play = play;
     }
 
-    public int[] getResponse() {
+    public String[] getResponse() {
         return response;
     }
 
-    public void setResponse(int[] response) {
+    public void setResponse(String[] response) {
         this.response = response;
     }
 
     public String checkWinner(){
 
         //Put logic for counting rounds, and giving opponent play in a separate method starting here
+
 
         for(int i = 0; i <= 9; i++) {
 
@@ -70,7 +71,7 @@ public class RockPaperScissors {
                         return "Scissors cuts paper!";
                     break;
                 case 9:
-                    if(play[0] == rock && play[1] == rock)
+                    if(play[0] == scissors && play[1] == rock)
                         return "Rock breaks scissors!";
                     break;
             }
@@ -80,6 +81,7 @@ public class RockPaperScissors {
 
     public void playRps() {
         //use play and response arrays to get and hold who wins and loses
+
         //Use a random number generator between one and three to determine opponent response
         //Once it's working, add logic to get the opponent to change its play if it loses
     }

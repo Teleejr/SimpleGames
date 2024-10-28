@@ -97,28 +97,32 @@ public class Main {
         Scanner scan = new Scanner(System.in);
         RockPaperScissors rps = new RockPaperScissors();
         String winner = null;
+        int[] hand = new int[2];
+        String[] best = new String[4];
 
         System.out.println("Rock, Paper, Scissors!\n Choose between Rock(1), Paper(2), and Scissors(3)");
 
         while(winner == null) {
-            int input = 0;
 
-            input = scan.nextInt();
+            hand[0] = scan.nextInt();
+            hand[1] = (int)((Math.random() * (4 - 1) + 1));
 
-            if(!(input > 0 && input <= 3)) {
+            if(!(hand[0] > 0 && hand[0] <= 3)) {
                 System.out.println("Invalid entry. Try again.");
                 continue;
             }
 
+            rps.setPlay(hand);
             winner = rps.checkWinner();
             if(winner.contains("draw")) {
                 System.out.println(winner);
             }
             else {
                 System.out.println(winner);
+
             }
         }
-        scan.close();
+            menu();
+        }
 
     }
-}
