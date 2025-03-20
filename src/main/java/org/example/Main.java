@@ -125,4 +125,8 @@ public class Main {
             menu();
         }
 
+    public static void hangman() {
+
+    }
+
     }
