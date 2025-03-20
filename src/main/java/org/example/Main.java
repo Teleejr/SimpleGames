@@ -1,5 +1,6 @@
 package org.example;
 
+import org.example.games.Hangman;
 import org.example.games.RockPaperScissors;
 import org.example.games.TicTacToe;
 
@@ -9,7 +10,9 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         System.out.println("Hello world!");
-        menu();
+        //menu();
+
+        hangman();
 
     }
 
@@ -127,6 +130,8 @@ public class Main {
 
     public static void hangman() {
 
+        Scanner scan = new Scanner(System.in);
+        Hangman hangman = new Hangman();
     }
 
     }
